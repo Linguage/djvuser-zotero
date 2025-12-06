@@ -405,6 +405,43 @@ This section shows the directory structure of a template.
 `-- zotero-plugin.config.ts   # scaffold conf, https://github.com/northword/zotero-plugin-scaffold
 ```
 
+## DjVu Integration
+
+This plugin integrates the [DjVu.js Viewer](https://github.com/DjVu-js/DjVu.js) to allow reading `.djvu` files directly within Zotero 7.
+
+### Build Instructions
+
+To build this plugin with the DjVu reader, you need to perform a two-step build process:
+
+1.  **Build the DjVu.js Viewer:**
+    Navigate to the `djvujs` directory and run:
+    ```bash
+    cd ../djvujs
+    npm install
+    npm run build
+    ```
+
+2.  **Copy Assets:**
+    Run the helper script in this directory to copy the built viewer assets to the plugin:
+    ```bash
+    node copy_assets.js
+    ```
+
+3.  **Build the Plugin:**
+    Finally, build the Zotero plugin:
+    ```bash
+    npm install
+    npm run build
+    ```
+
+The resulting `.xpi` file in the `build` directory will contain the integrated DjVu reader.
+
+### Usage
+
+1.  Right-click on any `.djvu` attachment in your Zotero library.
+2.  Select **Open with DjVu Reader**.
+3.  The file will open in a new Zotero tab using the embedded DjVu.js viewer.
+
 ## Disclaimer
 
 Use this code under AGPL. No warranties are provided. Keep the laws of your locality in mind!

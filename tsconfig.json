@@ -1,5 +1,9 @@
 {
   "extends": "zotero-types/entries/sandbox/",
+  "compilerOptions": {
+    "lib": ["es2015", "dom"],
+    "resolveJsonModule": true
+  },
   "include": ["src", "typings"],
   "exclude": ["build", "addon"]
 }

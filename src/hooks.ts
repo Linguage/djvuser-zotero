@@ -8,6 +8,7 @@ import {
 import { getString, initLocale } from "./utils/locale";
 import { registerPrefsScripts } from "./modules/preferenceScript";
 import { createZToolkit } from "./utils/ztoolkit";
+import { DjVuReader } from "./modules/djvu";
 
 async function onStartup() {
   await Promise.all([
@@ -71,6 +72,8 @@ async function onMainWindowLoad(win: _ZoteroTypes.MainWindow): Promise<void> {
   UIExampleFactory.registerStyleSheet(win);
 
   UIExampleFactory.registerRightClickMenuItem();
+
+  DjVuReader.registerRightClickMenuItem();
 
   UIExampleFactory.registerRightClickMenuPopup(win);
 
